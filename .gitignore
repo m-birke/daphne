@@ -16,7 +16,7 @@ thirdparty/*
 
 # Python
 __pycache__/
-/venv
+/**/*venv*
 
 # Jetbrains IDE
 .idea/
