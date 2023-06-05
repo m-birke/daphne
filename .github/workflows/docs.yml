@@ -1,0 +1,27 @@
+name: Build and Deploy DAPHNE Documentation
+
+on: push
+
+jobs:
+  build:
+    runs-on: ubuntu-20.04
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+    - name: Build HTML with Sphinx
+      uses: ammaraskar/sphinx-action@master
+      with:
+        docs-folder: "doc/"
+        pre-build-command: "pip3 install sphinx"
+        build-command: "sphinx-build -b html . build"
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: html-docs
+        path: doc/build/
+    - name: Deploy
+      uses: peaceiris/actions-gh-pages@v3
+      if: github.ref == 'refs/heads/main'
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: docs/build/html
