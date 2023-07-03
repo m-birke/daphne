@@ -591,8 +591,70 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#logical" class="md-nav__link">
+    Logical
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#strings" class="md-nav__link">
     Strings
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comparison" class="md-nav__link">
+    Comparison
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#outer-binary-generalized-outer-product" class="md-nav__link">
+    Outer binary (generalized outer product)
+  </a>
+  
+    <nav class="md-nav" aria-label="Outer binary (generalized outer product)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#arithmetic_1" class="md-nav__link">
+    Arithmetic
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#minmax_1" class="md-nav__link">
+    Min/max
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#logical_1" class="md-nav__link">
+    Logical
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#strings_1" class="md-nav__link">
+    Strings
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comparison_1" class="md-nav__link">
+    Comparison
   </a>
   
 </li>
@@ -1235,8 +1297,70 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#logical" class="md-nav__link">
+    Logical
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#strings" class="md-nav__link">
     Strings
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comparison" class="md-nav__link">
+    Comparison
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#outer-binary-generalized-outer-product" class="md-nav__link">
+    Outer binary (generalized outer product)
+  </a>
+  
+    <nav class="md-nav" aria-label="Outer binary (generalized outer product)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#arithmetic_1" class="md-nav__link">
+    Arithmetic
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#minmax_1" class="md-nav__link">
+    Min/max
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#logical_1" class="md-nav__link">
+    Logical
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#strings_1" class="md-nav__link">
+    Strings
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comparison_1" class="md-nav__link">
+    Comparison
   </a>
   
 </li>
@@ -1408,6 +1532,7 @@ Those library functions will internally be implemented using the built-in functi
 <li>Matrix/frame dimensions</li>
 <li>Elementwise unary</li>
 <li>Elementwise binary</li>
+<li>Outer binary (generalized outer product)</li>
 <li>Aggregation and statistical</li>
 <li>Reorganization</li>
 <li>Matrix decomposition &amp; co</li>
@@ -1536,7 +1661,10 @@ This is the product of the number of rows and the number of columns.</p>
 <p>The typical trigonometric functions:
 <strong><code>sin</code></strong>, <strong><code>cos</code></strong>, <strong><code>tan</code></strong>, <strong><code>sinh</code></strong>, <strong><code>cosh</code></strong>, <strong><code>tanh</code></strong>, <strong><code>asin</code></strong>, <strong><code>acos</code></strong>, <strong><code>atan</code></strong></p>
 <h2 id="elementwise-binary">Elementwise binary</h2>
-<p>The following built-in functions all follow the same scheme:</p>
+<p>DaphneDSL supports various elementwise binary operations.
+Some of those can be used through <em>operators in infix notation</em>, e.g., <code>+</code>; and some through <em>built-in functions</em>.
+Some operations even support both, e.g., <code>pow(a, b)</code> and <code>a^b</code> have the same semantics.</p>
+<p>The built-in functions all follow the same scheme:</p>
 <ul>
 <li>
 <p><strong><em><code>binaryFunc</code></em></strong><code>(lhs:scalar/matrix, rhs:scalar/matrix)</code></p>
@@ -1544,26 +1672,49 @@ This is the product of the number of rows and the number of columns.</p>
 Regarding the combinations of scalars and matrices, the same broadcasting semantics apply as for binary operations like <code>+</code>, <code>*</code>, etc. (see the <a href="/daphne/DaphneDSL/LanguageRef">DaphneDSL Language Reference</a>).</p>
 </li>
 </ul>
-<p>Note that DaphneDSL support various other elementwise binary functions via operators in infix notation (see <a href="/daphne/DaphneDSL/LanguageRef">DaphneDSL</a>), e.g., <code>^</code>, <code>%</code>, <code>*</code>, <code>/</code>, <code>+</code>, <code>-</code>, <code>==</code>, <code>!=</code>, <code>&lt;</code>, <code>&lt;=</code>, <code>&gt;</code>, <code>&gt;=</code>, <code>&amp;&amp;</code>, <code>||</code>.</p>
 <h3 id="arithmetic">Arithmetic</h3>
 <table>
 <thead>
 <tr>
 <th>function</th>
+<th>operator</th>
 <th>meaning</th>
 </tr>
 </thead>
 <tbody>
 <tr>
+<td></td>
+<td><strong><code>+</code></strong></td>
+<td>addition</td>
+</tr>
+<tr>
+<td></td>
+<td><strong><code>-</code></strong></td>
+<td>subtraction</td>
+</tr>
+<tr>
+<td></td>
+<td><strong><code>*</code></strong></td>
+<td>multiplication</td>
+</tr>
+<tr>
+<td></td>
+<td><strong><code>/</code></strong></td>
+<td>division</td>
+</tr>
+<tr>
 <td><strong><code>pow</code></strong></td>
+<td><strong><code>^</code></strong></td>
 <td>exponentiation (<code>lhs</code> to the power of <code>rhs</code>)</td>
 </tr>
 <tr>
 <td><strong><code>log</code></strong></td>
+<td></td>
 <td>logarithm (logarithm of <code>lhs</code> to the base of <code>rhs</code>)</td>
 </tr>
 <tr>
 <td><strong><code>mod</code></strong></td>
+<td><strong><code>%</code></strong></td>
 <td>modulo</td>
 </tr>
 </tbody>
@@ -1573,21 +1724,120 @@ Regarding the combinations of scalars and matrices, the same broadcasting semant
 <thead>
 <tr>
 <th>function</th>
+<th>operator</th>
 <th>meaning</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><strong><code>min</code></strong></td>
+<td></td>
 <td>minimum</td>
 </tr>
 <tr>
 <td><strong><code>max</code></strong></td>
+<td></td>
 <td>maximum</td>
 </tr>
 </tbody>
 </table>
+<h3 id="logical">Logical</h3>
+<table>
+<thead>
+<tr>
+<th>function</th>
+<th>operator</th>
+<th>meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td><strong><code>&amp;&amp;</code></strong></td>
+<td>logical conjunction</td>
+</tr>
+<tr>
+<td></td>
+<td><strong><code>\|\|</code></strong></td>
+<td>logical disjunction</td>
+</tr>
+</tbody>
+</table>
 <h3 id="strings">Strings</h3>
+<table>
+<thead>
+<tr>
+<th>function</th>
+<th>operator</th>
+<th>meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><code>concat</code></strong></td>
+<td><strong><code>+</code></strong></td>
+<td>string concatenation</td>
+</tr>
+</tbody>
+</table>
+<h3 id="comparison">Comparison</h3>
+<table>
+<thead>
+<tr>
+<th>function</th>
+<th>operator</th>
+<th>meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td><strong><code>==</code></strong></td>
+<td>equal</td>
+</tr>
+<tr>
+<td></td>
+<td><strong><code>!=</code></strong></td>
+<td>not equal</td>
+</tr>
+<tr>
+<td></td>
+<td><strong><code>&lt;</code></strong></td>
+<td>less than</td>
+</tr>
+<tr>
+<td></td>
+<td><strong><code>&lt;=</code></strong></td>
+<td>less or equal</td>
+</tr>
+<tr>
+<td></td>
+<td><strong><code>&gt;</code></strong></td>
+<td>greater than</td>
+</tr>
+<tr>
+<td></td>
+<td><strong><code>&gt;=</code></strong></td>
+<td>greater or equal</td>
+</tr>
+</tbody>
+</table>
+<h2 id="outer-binary-generalized-outer-product">Outer binary (generalized outer product)</h2>
+<p>The following built-in functions all follow the same scheme:</p>
+<ul>
+<li><strong><em><code>outerBinaryFunc</code></em></strong><code>(lhs:matrix, rhs:matrix)</code></li>
+</ul>
+<p>The argument <code>lhs</code> is expected to be a column <em>(m x 1)</em> matrix, and the argument <code>rhs</code> is expected to be a row <em>(1 x n)</em> matrix.
+  The result is a <em>(m x n)</em> matrix, whereby the element at position <em>(i, j)</em> is calculated by applying the respective binary function (see the table below) to the <em>i</em>-th element in <code>lhs</code> and the <em>j</em>-th element in <code>rhs</code>.
+  Schematically, this looks as follows (where <code>∘</code> is some binary operation):
+  <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>       |    b0    b1 ...    bn rhs
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    ---+----------------------
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>lhs a0 | a0∘b0 a0∘b1 ... a0∘bn res
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    a1 | a1∘b0 a1∘b1 ... a1∘bn
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    .. | ..... .....     .....
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    am | am∘b0 am∘b1 ... am∘bn
+</code></pre></div></p>
+<h3 id="arithmetic_1">Arithmetic</h3>
 <table>
 <thead>
 <tr>
@@ -1597,8 +1847,124 @@ Regarding the combinations of scalars and matrices, the same broadcasting semant
 </thead>
 <tbody>
 <tr>
-<td><strong><code>concat</code></strong></td>
+<td><strong><code>outerAdd</code></strong></td>
+<td>addition</td>
+</tr>
+<tr>
+<td><strong><code>outerSub</code></strong></td>
+<td>subtraction</td>
+</tr>
+<tr>
+<td><strong><code>outerMul</code></strong></td>
+<td>multiplication (the well-known <em>outer product</em>)</td>
+</tr>
+<tr>
+<td><strong><code>outerDiv</code></strong></td>
+<td>division</td>
+</tr>
+<tr>
+<td><strong><code>outerPow</code></strong></td>
+<td>exponentiation (<code>lhs</code> to the power of <code>rhs</code>)</td>
+</tr>
+<tr>
+<td><strong><code>outerLog</code></strong></td>
+<td>logarithm (logarithm of <code>lhs</code> to the base of <code>rhs</code>)</td>
+</tr>
+<tr>
+<td><strong><code>outerMod</code></strong></td>
+<td>modulo</td>
+</tr>
+</tbody>
+</table>
+<h3 id="minmax_1">Min/max</h3>
+<table>
+<thead>
+<tr>
+<th>function</th>
+<th>meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><code>outerMin</code></strong></td>
+<td>minimum</td>
+</tr>
+<tr>
+<td><strong><code>outerMax</code></strong></td>
+<td>maximum</td>
+</tr>
+</tbody>
+</table>
+<h3 id="logical_1">Logical</h3>
+<table>
+<thead>
+<tr>
+<th>function</th>
+<th>meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><code>outerAnd</code></strong></td>
+<td>logical conjunction</td>
+</tr>
+<tr>
+<td><strong><code>outerOr</code></strong></td>
+<td>logical disjunction</td>
+</tr>
+<tr>
+<td><strong><code>outerXor</code></strong></td>
+<td>logical exclusive disjunction</td>
+</tr>
+</tbody>
+</table>
+<h3 id="strings_1">Strings</h3>
+<table>
+<thead>
+<tr>
+<th>function</th>
+<th>meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><code>outerConcat</code></strong></td>
 <td>string concatenation</td>
+</tr>
+</tbody>
+</table>
+<h3 id="comparison_1">Comparison</h3>
+<table>
+<thead>
+<tr>
+<th>function</th>
+<th>meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><code>outerEq</code></strong></td>
+<td>equal</td>
+</tr>
+<tr>
+<td><strong><code>outerNeq</code></strong></td>
+<td>not equal</td>
+</tr>
+<tr>
+<td><strong><code>outerLt</code></strong></td>
+<td>less than</td>
+</tr>
+<tr>
+<td><strong><code>outerLe</code></strong></td>
+<td>less or equal</td>
+</tr>
+<tr>
+<td><strong><code>outerGt</code></strong></td>
+<td>greater than</td>
+</tr>
+<tr>
+<td><strong><code>outerGe</code></strong></td>
+<td>greater or equal</td>
 </tr>
 </tbody>
 </table>
