@@ -1009,6 +1009,13 @@ antlrcpp::Any DaphneDSLBuiltins::build(mlir::Location loc, const std::string & f
                 loc, arg, newline, err
         );
     }
+    if(func == "typeof") {
+        checkNumArgsExact(func, numArgs, 1);
+        return static_cast<mlir::Value>(builder.create<TypeOfOp>(
+                loc, utils.unknownType, args[0]
+        ));
+    }
+    }
     if(func == "readFrame" || func == "readMatrix") {
         checkNumArgsExact(func, numArgs, 1);
 
