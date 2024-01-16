@@ -9,10 +9,6 @@
       
       
       
-        <link rel="prev" href="../FPGAconfiguration/">
-      
-      
-        <link rel="next" href="../Profiling/">
       
       
       <link rel="icon" href="../assets/logo_small.png">
@@ -20,7 +16,7 @@
     
     
       
-        <title>MPI Usage - DAPHNE</title>
+        <title>Code Generation with MLIR - DAPHNE</title>
       
     
     
@@ -74,7 +70,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#mpi-usage" class="md-skip">
+        <a href="#code-generation-with-mlir" class="md-skip">
           Skip to content
         </a>
       
@@ -109,7 +105,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              MPI Usage
+              Code Generation with MLIR
             
           </span>
         </div>
@@ -226,12 +222,10 @@
         
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
+      <li class="md-tabs__item">
         <a href="../Quickstart/" class="md-tabs__link">
           
   
@@ -404,8 +398,6 @@
       
   
   
-    
-  
   
   
     
@@ -416,12 +408,12 @@
       
       
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
         
           
           <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
@@ -435,7 +427,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             Users
@@ -854,30 +846,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    MPI Usage
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../MPI-Usage/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -886,44 +858,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#when-daphne-is-installed-natively-wo-container" class="md-nav__link">
-    <span class="md-ellipsis">
-      When DAPHNE is Installed Natively (w/o Container)
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#when-daphne-is-installed-with-containers-eg-singularity" class="md-nav__link">
-    <span class="md-ellipsis">
-      When DAPHNE is Installed with Containers (e.g. singularity)
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1283,20 +1217,53 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#when-daphne-is-installed-natively-wo-container" class="md-nav__link">
+  <a href="#motivation" class="md-nav__link">
     <span class="md-ellipsis">
-      When DAPHNE is Installed Natively (w/o Container)
+      Motivation
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#when-daphne-is-installed-with-containers-eg-singularity" class="md-nav__link">
+  <a href="#guidelines" class="md-nav__link">
     <span class="md-ellipsis">
-      When DAPHNE is Installed with Containers (e.g. singularity)
+      Guidelines
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Guidelines">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#runtime-interoperability" class="md-nav__link">
+    <span class="md-ellipsis">
+      Runtime Interoperability
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#debugging" class="md-nav__link">
+    <span class="md-ellipsis">
+      Debugging
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Testing
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1318,46 +1285,83 @@
   
 
 
-<h1 id="mpi-usage">MPI Usage</h1>
-<p>About employing MPI as a distributed runtime backend.</p>
-<p>The DAPHNE runtime system is designed with the goal of supporting various distributed runtime that relies on various technologies, e.g. MPI and RPC.</p>
-<p>This document shows how a DAPHNE user can execute DAPHNE scripts on a distributed computing environment with the MPI backend implementation of the DAPHNE runtime system.
-This document assumes that the DAPHNE was build with the <code>--mpi</code> options, if this is not the case please rebuild DAPHNE with the <code>--mpi</code> option
-<code>./build.sh --mpi</code></p>
-<p>The DAPHNE build script uses <a href="https://www.open-mpi.org/">Open MPI</a>.
-The DAPHNE build script does not configure the Open MPI installation with the SLURM support option.
-For users who want to add the SLURM, please visit the <a href="https://www.open-mpi.org/">Open MPI</a> documentation (adding <code>--with-slurm</code> to the build command of the Open MPI libbrary) and edit the DAPHNE build script.
-Also, users who wants to use other MPI implementations e.g., Intel MPI may edit the corresponding part in the DAPHNE build script.</p>
-<h2 id="when-daphne-is-installed-natively-wo-container">When DAPHNE is Installed Natively (w/o Container)</h2>
-<ol>
-<li>
-<p>Ensure that your system knows about the installed MPI<br />
-    -- The <code>PATH</code> and <code>LD_LIBRARY_PATH</code>environment variable has to be updated as follows  </p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:&lt;DAPHNE_INSTALLATION&gt;/thirdparty/installed/bin/
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nb">export</span><span class="w"> </span><span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span><span class="nv">$LD_LIBRARY_PATH</span>:&lt;DAPHNE_INSTALLATION&gt;//thirdparty/installed/lib/<span class="w"> </span>
-</code></pre></div>
-<p>Please do not forget to replace <code>&lt;DAPHNE_INSTALLATION&gt;</code> with the actual path</p>
-</li>
-<li>
-<p>Run basic example @ <code>/examples/matrix_addition_for_mpi.daph</code> as follows</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>mpirun<span class="w"> </span>-np<span class="w"> </span><span class="m">10</span><span class="w"> </span>./bin/daphne<span class="w"> </span>--distributed<span class="w"> </span>--dist_backend<span class="o">=</span>MPI<span class="w"> </span>scripts/examples/matrix_addition_for_mpi.daph
-</code></pre></div>
-</li>
-</ol>
-<p>The command above executes 10 processes <strong>locally</strong> on one machine.</p>
-<p>In order to run on <strong>a distributed system</strong>, you need to provide the machine names or the machinefile which contains the machine names.
-For instance assuming that <code>my_hostfile</code> is a text file that contains machine names</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>mpirun<span class="w"> </span>-np<span class="w"> </span><span class="m">10</span><span class="w"> </span>--hostfile<span class="w"> </span>my_hostfile<span class="w">  </span>./bin/daphne<span class="w"> </span>--distributed<span class="w"> </span>--dist_backend<span class="o">=</span>MPI<span class="w"> </span>scripts/examples/matrix_addition_for_mpi.daph
-</code></pre></div>
-<p>The command above starts 10 processes distributed on following the hosts in the my_hostfile.
-For more options, please check the <a href="https://www.open-mpi.org/faq/?category=running#mpirun-hostfile">Open MPI documentation</a>.</p>
-<p>From a DAPHNE runtime point of view, the <code>--distributed</code> option tells the DAPHNE runtime system to utilize the distributed backend, while the <code>--dist_backend=MPI</code>
-indicate the type of the backend implementation.</p>
-<h2 id="when-daphne-is-installed-with-containers-eg-singularity">When DAPHNE is Installed with Containers (e.g. singularity)</h2>
-<p>The main difference is that the mpirun command is called at the level of the container as follows</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>mpirun<span class="w"> </span>-np<span class="w"> </span><span class="m">10</span><span class="w"> </span>singularity<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>&lt;singularity-image&gt;<span class="w"> </span>daphne/bin/daphne<span class="w"> </span>--distributed<span class="w">   </span>--dist_backend<span class="o">=</span>MPI<span class="w"> </span>--vec<span class="w"> </span>--num-threads<span class="o">=</span><span class="m">2</span><span class="w"> </span>daphne/scripts/examples/matrix_addition_for_mpi.daph
-</code></pre></div>
-<p>Please do not forget to replace <code>&lt;singularity-image&gt;</code> with the actual singularity image.</p>
+<h1 id="code-generation-with-mlir">Code Generation with MLIR</h1>
+<p>This document describes the process of directly generating code with the MLIR
+framework.</p>
+<h2 id="motivation">Motivation</h2>
+<p>DAPHNE provides a kernel for (almost) every DaphneIR operation which reside in
+<code>src/runtime/local/kernels/</code>. These are precompiled as a shared library and
+linked during compile-time. Even though these kernels can be highly optimized
+and thus achieve great runtime characteristics, they may not provide a desired
+level of extensibility for custom value types. They may also be lacking
+information only available at compile-time that could enable further
+optimizations. Additionally, through the process of progressively lowering the
+input IR, the code generation pipeline may enable more optimization
+possibilities such as operator or loop fusion.</p>
+<p>As an alternative way to implement our operators we provide the code generation
+pipeline which progressively lowers the DaphneIR available after parsing the
+DaphneDSL script to operations in either the same dialect or operations from
+other dialects. With that, we can optionally replace certain kernels by
+generating code directly, and also perform a hybrid compilation approach where
+we mix kernel calls with code generation in order to exploit advantages of
+both, precompiled kernel libraries and code generation. Code generation passes
+are found in <code>src/compiler/lowering/</code>.</p>
+<h2 id="guidelines">Guidelines</h2>
+<p>Currently, the code generation pipeline is enabled with the CLI flag
+<code>--mlir-codegen</code>. This adds the following passes that perform transformations and
+lowerings:</p>
+<ul>
+<li><a href="src/compiler/lowering/DaphneOptPass.cpp">DenseMatrixOptPass</a></li>
+<li><a href="src/compiler/lowering/MatMulOpLowering.cpp">MatMulOpLoweringPass</a></li>
+<li><a href="src/compiler/lowering/AggAllOpLowering.cpp">AggAllLoweringPass</a></li>
+<li><a href="src/compiler/lowering/MapOpLowering.cpp">MapOpLoweringPass</a></li>
+<li>InlinerPass</li>
+<li><a href="src/compiler/lowering/EwOpsLowering.cpp">LowerEwOpPass</a></li>
+<li>ConvertMathToLLVMPass</li>
+<li><a href="src/compiler/lowering/ModOpLowering.cpp">ModOpLoweringPass</a></li>
+<li>Canonicalizer</li>
+<li>CSE</li>
+<li>LoopFusion</li>
+<li>AffineScalarReplacement</li>
+<li>LowerAffinePass</li>
+</ul>
+<p>These passes are added in the <code>DaphneIrExecutor::buildCodegenPipeline</code>
+function. The <code>--mlir-hybrid-codegen</code> flag disables the <code>MatMulOpLoweringPass</code> since the
+kernel implementation vastly outperforms the generated code of this pass.</p>
+<h4 id="runtime-interoperability">Runtime Interoperability</h4>
+<p>Runtime interoperability with the <code>DenseMatrix</code> object is achieved with two
+kernels in <code>src/runtime/local/kernels/ConvertDenseMatrixToMemRef.h</code> and
+<code>src/runtime/local/kernels/ConvertMemRefToDenseMatrix.h</code> and the corresponding
+DaphneOps <code>Daphne_ConvertMemRefToDenseMatrix</code> and
+<code>Daphne_ConvertDenseMatrixToMemRef</code>. These kernels define how a MemRef is
+passed to a kernel and how a kernel can return a <code>StridedMemRefType</code>.</p>
+<h4 id="debugging">Debugging</h4>
+<p>In order to enable our debug <code>PrintIRPass</code> pass, one has to add <code>--explain
+mlir_code_gen</code> when running <code>daphne</code>. Additionally, it is recommended to use the
+<code>daphne-opt</code> tool to test passes in isolation. One just has to provide the
+input IR for a pass to <code>daphne-opt</code> and the correct flag to run the pass (or
+multiple passes) on the IR. <code>daphne-opt</code> provides all the functionality of the
+<code>mlir-opt</code> tool.</p>
+<p><code>daphne-opt --lower-ew --debug-only=dialect-conversion ew.mlir</code> performs the
+<code>LowerEwOpPass</code> on the input file <code>ew.mlir</code> while providing dialect conversion
+debug information.</p>
+<h4 id="testing">Testing</h4>
+<p>To test the generated code, there currently are two different approaches.</p>
+<p>End-to-end tests can be found under <code>test/api/cli/codegen/</code> and are part of the
+existing Catch2 test-suite with the its own tag, <code>TAG_CODEGEN</code>.</p>
+<p>Additionally, there are tests that check the generated IR by running the
+<code>llvm-lit</code>, <code>daphne-opt</code>, and <code>FileCheck</code> utilities. These tests reside under
+<code>test/compiler/lowering/</code>. They are <code>.mlir</code> files containing the input IR of a
+certain pass, or pass pipeline, and the <code>llvm-lit</code> directive at the top of the
+file (<code>RUN:</code>). In that line we specify how <code>llvm-lit</code> executes the test, e.g.,
+<code>// RUN: daphne-opt --lower-ew %s | FileCheck %s</code>, means that <code>daphne-opt</code> is
+called with the <code>--lower-ew</code> flag and the current file as input, the output of
+that, in addition to the file itself, is piped to <code>FileCheck</code>. <code>FileCheck</code> uses
+the comments in the <code>.mlir</code> file to check for certain conditions, e.g., <code>//
+CHECK-NOT: daphne.ewAdd</code> looks through the IR and fails if <code>daphne.ewAdd</code> can be
+found. These <code>llvm-lit</code> tests are all run by the <code>codegen</code> testcase in
+<code>test/codegen/Codegen.cpp</code>.</p>
+<p>All codegen tests can be executed by running <code>bin/run_tests '[codegen]'</code>.</p>
 
 
 
